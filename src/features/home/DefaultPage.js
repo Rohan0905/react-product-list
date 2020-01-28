@@ -8,7 +8,7 @@ import * as actions from './redux/actions';
 import withStyles from '@material-ui/core/styles/withStyles';
 import styles from './styles/product'; 
 import Button from '@material-ui/core/Button';
-import { products } from '../../utils/Constants';
+import { products, pricingInfo } from '../../utils/Constants';
 
 export class DefaultPage extends Component {
   static propTypes = {
@@ -53,8 +53,10 @@ export class DefaultPage extends Component {
 
   componentDidMount() {
     const { actions ,home ={}} = this.props;
+   console.log('home', this.props);
     const { loadProduct } = actions;
     const { productList =[]} = home;
+    console.log('home', loadProduct);
     if(productList.length === 0){
       loadProduct(products);
     }

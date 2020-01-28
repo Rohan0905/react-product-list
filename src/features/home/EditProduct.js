@@ -147,20 +147,36 @@ export class EditProduct extends Component {
       isEditable = true,
       productId,
     } = this.state;
-    let product = {
-      name: name,
-      pricingTier: pricingTier,
-      priceRange: priceRange,
-      weight: parseInt(weight),
-      availability: parseInt(availability),
-      productUrl: productUrl,
-      isEditable: isEditable,
-    };
-    let _productList = productList.slice();
-    _productList[productId] = product;
-    console.log(_productList);
-    updateProduct(_productList);
-    this.props.history.push('/');
+
+    if(!name) {
+      alert('Please add name');
+    } else if (!weight) {
+      alert('Please enter weight');
+    } else if (!weight) {
+      alert('Please enter weight');
+    } else if (!productUrl) {
+      alert('Please enter product url');
+    } else if (!pricingTier) {
+      alert('Please select pricing option');
+    }
+    else { 
+      let product = {
+        name: name,
+        pricingTier: pricingTier,
+        priceRange: priceRange,
+        weight: parseInt(weight),
+        availability: parseInt(availability),
+        productUrl: productUrl,
+        isEditable: isEditable,
+      };
+      let _productList = productList.slice();
+      _productList[productId] = product;
+      console.log(_productList);
+      updateProduct(_productList);
+      this.props.history.push('/');
+    }
+
+    
   }
 
   handleChange(e) {

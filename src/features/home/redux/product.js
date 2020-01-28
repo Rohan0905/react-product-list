@@ -26,13 +26,15 @@ export function reducer(state, action) {
     case LOAD_PRODUCT:
       return {
         ...state,
-        productList:action.data
+        productList:action.data,
+        pricingInfo: action.data
       };
 
     case UPDATE_PRODUCT:
       return {
         ...state,
-        productList:action.data
+        productList:action.data,
+        pricingInfo: action.data
       };
 
     default:
